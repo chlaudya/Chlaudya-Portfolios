@@ -12,7 +12,7 @@ export function Hero() {
               user engagement. Passionate about IT and dedicated to continuous learning, I thrive in a collaborative,
               enthusiastic environment conducive to professional growth.
             </p>
-            <p className="text-sm text-muted-foreground mt-4">Jakarta, Indonesia • mamuaya.chlaudya@gmail.com</p>
+            <p className="text-sm text-muted-foreground mt-4">Bali, Indonesia • mamuaya.chlaudya@gmail.com</p>
           </div>
 
           <div className="pt-8 flex flex-wrap gap-4">
