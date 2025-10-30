@@ -68,7 +68,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-primary-foreground/20 pt-8 text-center text-sm text-primary-foreground/80">
-          <p>&copy; {currentYear} Your Name. All rights reserved.</p>
+          <p>&copy; {currentYear} Chlaudya Margareta. All rights reserved.</p>
         </div>
       </div>
     </footer>
