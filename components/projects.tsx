@@ -8,9 +8,10 @@ export function Projects() {
     {
       title: "PT. Itsavirus Development Bali",
       description:
-        "Senior Frontend Engineer - Leading and mentoring a team of frontend engineers, driving technical decisions, and fostering a growth-oriented culture. Implementing architectural improvements and conducting rigorous code reviews.",
+        "Senior Frontend Engineer - Leading and mentoring a team of frontend engineers, driving technical decisions, and fostering a growth-oriented culture. Implementing architectural improvements and conducting rigorous code reviews. Currently working on Netherlands Company NGBlu Networks website",
       tags: ["Team Leadership", "Technical Architecture", "Code Review", "Mentoring"],
       images: ["/ngblu-1", "/ngblu-2", "/ngblu-3", "/ngblu-4", "/ngblu-5"],
+      link: "https://www.ngblunetworks.nl/"
     },
     {
       title: "PT. BFI Finance Indonesia, Tbk",
