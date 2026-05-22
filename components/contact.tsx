@@ -1,98 +1,144 @@
 "use client"
 
-import type React from "react"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+import { toast } from "sonner"
+import { SectionHeading } from "@/components/ui/section-heading"
+import { Reveal } from "@/components/motion/reveal"
+import { Button } from "@/components/ui/button"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { socialLinks } from "@/lib/projects"
+import { Spinner } from "@/components/ui/spinner"
 
-import { useState } from "react"
+const contactFormSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Invalid email address"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+})
+
+type ContactFormValues = z.infer<typeof contactFormSchema>
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: { name: "", email: "", message: "" },
   })
-  const [submitted, setSubmitted] = useState(false)
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
+  async function onSubmit(values: ContactFormValues) {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        const msg =
+          typeof data.error === "string"
+            ? data.error
+            : "Failed to send message. Please email directly."
+        toast.error(msg)
+        return
+      }
+
+      toast.success("Message sent! I'll get back to you soon.")
+      form.reset()
+    } catch {
+      toast.error("Something went wrong. Please try again or email directly.")
+    }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission here
-    console.log("Form submitted:", formData)
-    setSubmitted(true)
-    setTimeout(() => {
-      setFormData({ name: "", email: "", message: "" })
-      setSubmitted(false)
-    }, 3000)
-  }
+  const isSubmitting = form.formState.isSubmitting
 
   return (
-    <section id="contact" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-muted/30">
+    <section id="contact" className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-anchor">
       <div className="max-w-2xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">Let's Work Together</h2>
-        <p className="text-muted-foreground mb-12 leading-relaxed">
-          Have a project in mind? I'd love to hear about it. Reach out at mamuaya.chlaudya@gmail.com or use the form
-          below.
-        </p>
+        <Reveal>
+          <SectionHeading
+            title="Let's Work Together"
+            subtitle={`Have a project in mind? Email ${socialLinks.email} or use the form below.`}
+          />
+        </Reveal>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-              placeholder="Your name"
-            />
+        <Reveal delay={0.1}>
+          <div className="glass-card p-6 md:p-8">
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Name</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Your name" className="bg-background/50" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="email"
+                          placeholder="you@email.com"
+                          className="bg-background/50"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Message</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          placeholder="Tell me about your project..."
+                          rows={5}
+                          className="bg-background/50 resize-none"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <Button type="submit" className="w-full btn-gradient" size="lg" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      <Spinner className="size-4" />
+                      Sending...
+                    </>
+                  ) : (
+                    "Send Message"
+                  )}
+                </Button>
+              </form>
+            </Form>
           </div>
-
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-              placeholder="your@email.com"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              rows={5}
-              className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-              placeholder="Tell me about your project..."
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity font-medium"
-          >
-            {submitted ? "Message Sent!" : "Send Message"}
-          </button>
-        </form>
+        </Reveal>
       </div>
     </section>
   )

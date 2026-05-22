@@ -1,19 +1,23 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
+import { HeroMetrics } from "@/components/hero-metrics"
 import { Projects } from "@/components/projects"
 import { Skills } from "@/components/skills"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
-
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background">
+    <div className="relative min-h-screen">
+      <div className="fixed inset-0 page-ambient pointer-events-none -z-10" aria-hidden />
       <Header />
-      <Hero />
-      <Projects />
-      <Skills />
-      <Contact />
+      <main>
+        <Hero />
+        <HeroMetrics />
+        <Projects />
+        <Skills />
+        <Contact />
+      </main>
       <Footer />
-    </main>
+    </div>
   )
 }

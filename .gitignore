@@ -1,2 +1,7 @@
 node_modules/
 yarn.lock
+.env
+/_bmad-output/
+/_bmad/
+.agents/
+.next/
