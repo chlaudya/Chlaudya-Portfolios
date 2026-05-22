@@ -37,13 +37,6 @@ export function Hero() {
             variants={staggerContainer}
             className="space-y-6 flex-1 max-w-2xl"
           >
-            <motion.div variants={fadeUp} transition={defaultTransition}>
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium glass border-primary/20 text-foreground/90">
-                <span className="size-1.5 rounded-full bg-accent animate-pulse" />
-                Available for senior frontend roles
-              </span>
-            </motion.div>
-
             <motion.p
               variants={fadeUp}
               transition={defaultTransition}
