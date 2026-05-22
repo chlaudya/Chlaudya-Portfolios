@@ -1,26 +1,32 @@
-"use client"
+"use client";
 
-import type { ComponentType } from "react"
-import { motion } from "motion/react"
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
-import { fadeUp, staggerContainer, defaultTransition } from "@/lib/animations"
-import { socialLinks } from "@/lib/projects"
-import { useReducedMotion } from "@/components/motion/use-reduced-motion"
-import { FloatingOrbs } from "@/components/floating-orbs"
-import { HeroFeatureTiles } from "@/components/hero-feature-tiles"
-import { GradientButton } from "@/components/motion/gradient-button"
-import { cn } from "@/lib/utils"
+import type { ComponentType } from "react";
+import { motion } from "motion/react";
+import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { fadeUp, staggerContainer, defaultTransition } from "@/lib/animations";
+import { socialLinks } from "@/lib/projects";
+import { useReducedMotion } from "@/components/motion/use-reduced-motion";
+import { FloatingOrbs } from "@/components/floating-orbs";
+import { HeroFeatureTiles } from "@/components/hero-feature-tiles";
+import { GradientButton } from "@/components/motion/gradient-button";
+import { cn } from "@/lib/utils";
 
 export function Hero() {
-  const reduced = useReducedMotion()
+  const reduced = useReducedMotion();
 
   return (
     <section
       id="about"
       className="relative min-h-[92vh] flex items-center section-anchor overflow-hidden px-4 sm:px-6 lg:px-8"
     >
-      <div className="absolute inset-0 mesh-hero mesh-animate pointer-events-none" aria-hidden />
-      <div className="absolute inset-0 grid-noise pointer-events-none opacity-50" aria-hidden />
+      <div
+        className="absolute inset-0 mesh-hero mesh-animate pointer-events-none"
+        aria-hidden
+      />
+      <div
+        className="absolute inset-0 grid-noise pointer-events-none opacity-50"
+        aria-hidden
+      />
       <FloatingOrbs />
 
       <div className="relative max-w-6xl mx-auto w-full py-24 md:py-28 lg:py-32">
@@ -60,11 +66,11 @@ export function Hero() {
               transition={defaultTransition}
               className="text-lg md:text-xl text-muted-foreground leading-relaxed text-balance"
             >
-              Detail-oriented frontend engineer with 6+ years in React, TypeScript,
-              and modern JavaScript stacks — 10+ corporate platforms and admin
-              dashboards shipped, with a 30% lift in user engagement. I move fast with
-              AI-assisted development, payment integrations, and motion-rich UI in
-              global, cross-functional teams.
+              Detail-oriented frontend engineer with 6+ years in React,
+              TypeScript, and modern JavaScript stacks — 10+ corporate platforms
+              and admin dashboards shipped, with a 30% lift in user engagement.
+              I move fast with AI-assisted development, payment integrations,
+              and motion-rich UI in global, cross-functional teams.
             </motion.p>
 
             <motion.p
@@ -91,9 +97,21 @@ export function Hero() {
               transition={defaultTransition}
               className="flex flex-wrap items-center gap-3 pt-4"
             >
-              <SocialChip href={socialLinks.github} label="GitHub" icon={Github} />
-              <SocialChip href={socialLinks.linkedin} label="LinkedIn" icon={Linkedin} />
-              <SocialChip href={`mailto:${socialLinks.email}`} label="Email" icon={Mail} />
+              <SocialChip
+                href={socialLinks.github}
+                label="GitHub"
+                icon={Github}
+              />
+              <SocialChip
+                href={socialLinks.linkedin}
+                label="LinkedIn"
+                icon={Linkedin}
+              />
+              <SocialChip
+                href={`mailto:${socialLinks.email}`}
+                label="Email"
+                icon={Mail}
+              />
             </motion.div>
           </motion.div>
 
@@ -111,7 +129,7 @@ export function Hero() {
         </motion.a>
       </div>
     </section>
-  )
+  );
 }
 
 function SocialChip({
@@ -119,9 +137,9 @@ function SocialChip({
   label,
   icon: Icon,
 }: {
-  href: string
-  label: string
-  icon: ComponentType<{ className?: string }>
+  href: string;
+  label: string;
+  icon: ComponentType<{ className?: string }>;
 }) {
   return (
     <motion.a
@@ -138,5 +156,5 @@ function SocialChip({
       <Icon className="size-4" />
       {label}
     </motion.a>
-  )
+  );
 }
