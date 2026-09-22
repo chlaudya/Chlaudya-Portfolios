@@ -7,7 +7,6 @@ export interface Project {
   tags: string[];
   images: string[];
   link?: string;
-  featured?: boolean;
   highlight?: string;
 }
 
@@ -23,7 +22,18 @@ export const projects: Project[] = [
     tags: ["Team Leadership", "React", "Architecture", "Mentoring"],
     images: ["/ngblu-1", "/ngblu-2", "/ngblu-3", "/ngblu-4", "/ngblu-5"],
     link: "https://www.ngblunetworks.nl/",
-    featured: true,
+  },
+  {
+    slug: "baliconnect",
+    title: "BaliConnect",
+    shortTitle: "BaliConnect",
+    role: "Frontend Engineer",
+    highlight: "Packages · À la carte",
+    description:
+      "Travel site for authentic Bali journeys — ready-made packages, tailor-made planning, and à la carte transport, guides, and activities, with a calm editorial layout.",
+    tags: ["Travel", "UI", "Responsive", "Marketing"],
+    images: ["/baliconnect-1", "/baliconnect-2", "/baliconnect-3", "/baliconnect-4"],
+    link: "https://baliconnect.id/",
   },
   {
     slug: "bfi",

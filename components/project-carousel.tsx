@@ -14,10 +14,9 @@ import { cn } from "@/lib/utils"
 interface ProjectCarouselProps {
   images: string[]
   title: string
-  variant?: "default" | "featured"
 }
 
-export function ProjectCarousel({ images, title, variant = "default" }: ProjectCarouselProps) {
+export function ProjectCarousel({ images, title }: ProjectCarouselProps) {
   const slides = images?.length ? images : ["/placeholder-project.svg"]
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
@@ -38,8 +37,6 @@ export function ProjectCarousel({ images, title, variant = "default" }: ProjectC
     }
   }, [api, onSelect])
 
-  const isFeatured = variant === "featured"
-
   return (
     <Carousel className="w-full h-full" setApi={setApi} opts={{ loop: true }}>
       <CarouselContent className="h-full ml-0">
@@ -47,8 +44,7 @@ export function ProjectCarousel({ images, title, variant = "default" }: ProjectC
           <CarouselItem key={`${src}-${index}`} className="pl-0 h-full">
             <div
               className={cn(
-                "relative w-full overflow-hidden bg-muted",
-                isFeatured ? "aspect-[16/9] md:aspect-auto md:h-full md:min-h-[320px]" : "aspect-[16/10]",
+                "relative aspect-[16/10] w-full overflow-hidden bg-muted",
               )}
             >
               {isSvgSrc(src) ? (

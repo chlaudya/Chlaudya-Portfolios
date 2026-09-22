@@ -15,7 +15,6 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
   const reduced = useReducedMotion()
-  const isFeatured = project.featured
 
   return (
     <motion.article
@@ -24,28 +23,16 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       viewport={{ once: true, margin: "-48px" }}
       transition={{ ...defaultTransition, delay: index * 0.07 }}
       className={cn(
-        "group relative flex flex-col overflow-hidden rounded-2xl tile-card",
+        "group relative flex h-full flex-col overflow-hidden rounded-2xl tile-card",
         "transition-all duration-500",
         "hover:project-card-glow",
         "before:pointer-events-none before:absolute before:inset-0 before:rounded-2xl",
         "before:bg-gradient-to-br before:from-primary/10 before:via-transparent before:to-accent/10",
         "before:opacity-0 before:transition-opacity before:duration-500 group-hover:before:opacity-100",
-        isFeatured && "lg:col-span-12 lg:flex-row lg:min-h-[360px]",
-        !isFeatured && "lg:col-span-6",
       )}
     >
-      {/* Image panel */}
-      <div
-        className={cn(
-          "relative shrink-0 overflow-hidden",
-          isFeatured ? "lg:w-[58%]" : "w-full",
-        )}
-      >
-        <ProjectCarousel
-          images={project.images}
-          title={project.shortTitle}
-          variant={isFeatured ? "featured" : "default"}
-        />
+      <div className="relative w-full shrink-0 overflow-hidden">
+        <ProjectCarousel images={project.images} title={project.shortTitle} />
 
         {project.link && (
           <a
@@ -70,18 +57,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       </div>
 
       {/* Content panel */}
-      <div
-        className={cn(
-          "relative z-10 flex flex-1 flex-col p-5 md:p-6 lg:p-8",
-          isFeatured && "lg:justify-center lg:border-l lg:border-border/40",
-        )}
-      >
+      <div className="relative z-10 flex flex-1 flex-col p-5 md:p-6">
         <div className="flex flex-wrap items-center gap-2 mb-3">
-          {isFeatured && (
-            <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider bg-primary/15 text-primary border border-primary/25">
-              Featured
-            </span>
-          )}
           {project.highlight && (
             <span className="px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-accent/10 text-accent border border-accent/20">
               {project.highlight}
@@ -95,16 +72,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         </h3>
         <p className="text-xs text-muted-foreground/80 mb-3 line-clamp-1">{project.title}</p>
 
-        <p
-          className={cn(
-            "text-sm text-muted-foreground leading-relaxed mb-5",
-            isFeatured ? "line-clamp-4 md:line-clamp-5" : "line-clamp-3",
-          )}
-        >
+        <p className="mb-5 min-h-[4.25rem] text-sm leading-relaxed text-muted-foreground line-clamp-3">
           {project.description}
         </p>
 
-        <div className="mt-auto flex flex-wrap gap-1.5">
+        <div className="mt-auto flex min-h-[3.75rem] flex-wrap content-start gap-1.5">
           {project.tags.map((tag) => (
             <span
               key={tag}

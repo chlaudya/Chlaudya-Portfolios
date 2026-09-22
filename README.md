@@ -18,12 +18,12 @@ Personal portfolio site for **Chlaudya Margareta**, Senior Frontend Engineer. Si
 ### Prerequisites
 
 - Node.js 18+
-- npm (or pnpm / yarn)
+- npm
 
 ### Install & run
 
 ```bash
-npm install --legacy-peer-deps
+npm install
 cp .env.example .env.local
 npm run dev
 ```
@@ -71,6 +71,7 @@ Screenshots are served from `public/` (extensionless JPEG/PNG files):
 | Project | Files |
 |---------|-------|
 | NGBlu | `ngblu-1` … `ngblu-5` |
+| BaliConnect | `baliconnect-1` … `baliconnect-4` |
 | BFI | `bfi-1` … `bfi-3` |
 | Amar Bank | `tunaiku-1` … `tunaiku-3` |
 | MuslimWills | `muslim-1` … `muslim-3` |
