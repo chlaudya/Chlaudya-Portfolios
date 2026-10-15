@@ -17,7 +17,7 @@ export function TechStack() {
                 <ul className="mt-4 grid grid-cols-1 gap-x-6 gap-y-4 min-[360px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
                   {c.skills.map((s) => (
                     <li key={s.name} className="flex min-w-0 items-center gap-2.5 text-xs">
-                      <span aria-hidden className="grid size-6 shrink-0 place-items-center rounded bg-black font-mono text-[9px] font-semibold text-white">
+                      <span aria-hidden className="grid size-6 shrink-0 place-items-center rounded bg-[var(--mg-badge-bg)] font-mono text-[9px] font-semibold text-[var(--mg-badge-fg)]">
                         {s.abbr}
                       </span>
                       <span className="min-w-0 break-words">{s.name}</span>

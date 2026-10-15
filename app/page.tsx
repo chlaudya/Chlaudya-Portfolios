@@ -17,15 +17,19 @@ export default function Home() {
         <StackSection index={0} rounded={false}>
           <Hero />
         </StackSection>
-        <StackSection index={1} className="bg-[var(--mg-bg)]">
+        <StackSection index={1} tone="light">
           <Projects />
+        </StackSection>
+        <StackSection index={2} tone="charcoal">
           <TechStack />
+        </StackSection>
+        <StackSection index={3} tone="stone">
           <Workflow />
         </StackSection>
-        <StackSection index={2} className="bg-[var(--mg-bg)]">
+        <StackSection index={4} tone="dark">
           <Experience />
         </StackSection>
-        <StackSection index={3} pin={false} rounded={false}>
+        <StackSection index={5} pin={false} rounded={false}>
           <ContactCta />
         </StackSection>
       </main>

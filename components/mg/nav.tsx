@@ -10,7 +10,7 @@ export function Nav() {
   const [open, setOpen] = useState(false)
   return (
     <header className="fixed inset-x-0 top-0 z-50 flex justify-center">
-      <nav aria-label="Primary" className="mt-0 flex items-center gap-1 rounded-b-3xl bg-black px-3 py-2 text-white shadow-lg">
+      <nav aria-label="Primary" className="mt-0 flex items-center gap-1 rounded-b-3xl bg-black px-3 py-2 text-white shadow-lg ring-1 ring-white/15">
         <ul className="hidden items-center gap-1 sm:flex">
           {items.slice(0, 2).map((i) => (
             <li key={i.href}><a className="mg-focus rounded-full px-3 py-1.5 text-xs text-white/70 hover:text-white" href={i.href}>{i.label}</a></li>

@@ -320,3 +320,21 @@ body { background: var(--mg-bg); color: var(--mg-dark); }
     radial-gradient(circle at 50% 55%, transparent 0 42%, rgb(255 255 255 / .05) 42.1% 42.3%, transparent 42.4%);
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* ---- per-panel tones for stacked sections ---- */
+:root {
+  --mg-fg: var(--mg-dark); --mg-body: #444; --mg-line: rgb(0 0 0 / .1);
+  --mg-surface: #fff; --mg-badge-bg: #000; --mg-badge-fg: #fff;
+  --mg-chip-bg: #ededed; --mg-chip-fg: #333; --mg-panel: var(--mg-bg);
+  --mg-stone: #e9e3d9; --mg-charcoal: #161514;
+}
+.mg-tone-light, .mg-tone-stone, .mg-tone-dark, .mg-tone-charcoal { background: var(--mg-panel); color: var(--mg-fg); }
+.mg-tone-light { --mg-panel: var(--mg-bg); }
+.mg-tone-stone { --mg-panel: var(--mg-stone); --mg-medium: #575757; --mg-body: #3a3a3a; --mg-line: rgb(0 0 0 / .12); --mg-chip-bg: #dcd5c9; }
+.mg-tone-dark, .mg-tone-charcoal {
+  --mg-fg: #f5f3f1; --mg-medium: #a8a8a8; --mg-body: #cfcfcf; --mg-line: rgb(255 255 255 / .12);
+  --mg-surface: #1f1f1f; --mg-badge-bg: #f5f3f1; --mg-badge-fg: #0b0b0b; --mg-chip-bg: #262626; --mg-chip-fg: #e5e5e5;
+}
+.mg-tone-dark { --mg-panel: var(--mg-dark); }
+.mg-tone-charcoal { --mg-panel: var(--mg-charcoal); }
+.mg-chip { background: var(--mg-chip-bg); color: var(--mg-chip-fg); }

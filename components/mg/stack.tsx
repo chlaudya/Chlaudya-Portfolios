@@ -15,12 +15,15 @@ export function StackSection({
   className,
   rounded = true,
   pin = true,
+  tone,
 }: {
   children: ReactNode
   index: number
   className?: string
   rounded?: boolean
   pin?: boolean
+  /** Panel palette: sets background, text and per-panel color tokens. */
+  tone?: "light" | "dark" | "stone" | "charcoal"
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const reduced = useReducedMotion()
@@ -47,6 +50,7 @@ export function StackSection({
         style={sticky ? { scale, transformOrigin: "50% 0%" } : undefined}
         className={cn(
           "relative overflow-clip",
+          tone && `mg-tone-${tone}`,
           rounded && "rounded-t-[clamp(2rem,5vw,3rem)] shadow-[0_-24px_48px_-24px_rgb(0_0_0/0.35)]",
           className,
         )}
