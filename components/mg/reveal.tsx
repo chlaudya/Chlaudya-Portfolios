@@ -37,3 +37,13 @@ export function SectionHead({ eyebrow, title, intro, id }: { eyebrow: string; ti
     </div>
   )
 }
+
+/** Two-column section layout: sticky title/intro column on desktop (md+), content scrolls beside it. */
+export function SplitLayout({ aside, children }: { aside: ReactNode; children: ReactNode }) {
+  return (
+    <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1fr_2fr]">
+      <div className="md:sticky md:top-24 md:self-start">{aside}</div>
+      <div className="min-w-0">{children}</div>
+    </div>
+  )
+}

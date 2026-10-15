@@ -1,14 +1,15 @@
 import { projects } from "@/lib/projects"
-import { Rise, SectionHead } from "./reveal"
+import { Rise, SectionHead, SplitLayout } from "./reveal"
 
 export function Experience() {
   return (
     <section id="experience" aria-labelledby="exp-title" className="px-5 pb-24 pt-20 md:px-10">
-      <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1fr_2fr]">
-        <div className="md:sticky md:top-24 md:self-start">
+      <SplitLayout
+        aside={
           <SectionHead id="exp-title" eyebrow="Career &" title="Experience"
             intro="Companies and products I've built for, the role I played, and the tech behind the work." />
-        </div>
+        }
+      >
         <ol className="relative border-l border-[var(--mg-line)] pl-6">
           {projects.map((p, i) => (
             <li key={p.slug} className="relative border-b border-[var(--mg-line)] py-7 last:border-0">
@@ -25,7 +26,7 @@ export function Experience() {
             </li>
           ))}
         </ol>
-      </div>
+      </SplitLayout>
     </section>
   )
 }
