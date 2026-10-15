@@ -14,7 +14,7 @@ export default function Home() {
       <a href="#projects" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded focus:bg-white focus:px-3 focus:py-2">Skip to content</a>
       <Nav />
       <main className="bg-black">
-        <StackSection index={0} rounded={false}>
+        <StackSection index={0} rounded={false} pin>
           <Hero />
         </StackSection>
         <StackSection index={1} tone="light">
@@ -26,10 +26,10 @@ export default function Home() {
         <StackSection index={3} tone="stone">
           <Workflow />
         </StackSection>
-        <StackSection index={4} tone="dark">
+        <StackSection index={4} tone="dark" pin>
           <Experience />
         </StackSection>
-        <StackSection index={5} rounded={false}>
+        <StackSection index={5} className="bg-black">
           <ContactCta />
         </StackSection>
       </main>
