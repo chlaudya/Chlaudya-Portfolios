@@ -29,7 +29,7 @@ export default function Home() {
         <StackSection index={4} tone="dark">
           <Experience />
         </StackSection>
-        <StackSection index={5} pin={false} rounded={false}>
+        <StackSection index={5} rounded={false}>
           <ContactCta />
         </StackSection>
       </main>

@@ -3,13 +3,15 @@ import { motion, useReducedMotion } from "motion/react"
 import type { ReactNode } from "react"
 export function Rise({ children, delay = 0, className }: { children: ReactNode; delay?: number; className?: string }) {
   const reduced = useReducedMotion()
+  if (reduced) return <div className={className}>{children}</div>
   return (
     <motion.div
       className={className}
-      initial={reduced ? false : { opacity: 0, y: 24, filter: "blur(6px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      // Trigger as soon as any part enters (with a small bottom inset) so tall blocks never stay hidden.
+      viewport={{ once: true, amount: "some", margin: "0px 0px -8% 0px" }}
+      transition={{ duration: 0.55, delay: Math.min(delay, 0.2), ease: "easeOut" }}
     >
       {children}
     </motion.div>
