@@ -275,3 +275,48 @@
       0 24px 60px -24px oklch(0.1 0.02 280 / 0.8);
   }
 }
+
+/* ---- migss-inspired design language ---- */
+:root {
+  --mg-bg: #f5f3f1;
+  --mg-dark: #0b0b0b;
+  --mg-medium: #626262;
+  --mg-light: #d9d9d9;
+  --mg-very-light: #f8f8f8;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--mg-bg); color: var(--mg-dark); }
+.font-hero { font-family: var(--font-hero), ui-serif, Georgia, serif; }
+.mg-eyebrow {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.6875rem; letter-spacing: 0.18em; text-transform: uppercase;
+}
+.mg-title { text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.95; font-weight: 500; }
+.mg-section-light {
+  background: var(--mg-bg);
+  border-radius: clamp(2.75rem, 6.5vw, 4rem);
+}
+.mg-pill {
+  display: inline-flex; align-items: center; gap: .5rem;
+  border-radius: 9999px; padding: .5rem 1rem;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: .6875rem; letter-spacing: .14em; text-transform: uppercase;
+  transition: background-color .25s, color .25s, border-color .25s, transform .25s;
+}
+.mg-pill:hover { transform: translateY(-1px); }
+.mg-pill:focus-visible, .mg-focus:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.mg-pill-dark { background: var(--mg-dark); color: #fff; }
+.mg-pill-dark:hover { background: #262626; }
+.mg-pill-ghost { border: 1px solid rgb(255 255 255 / .25); color: #fff; background: rgb(255 255 255 / .04); }
+.mg-pill-ghost:hover { border-color: rgb(255 255 255 / .6); background: rgb(255 255 255 / .1); }
+.mg-chip {
+  display: inline-flex; align-items: center; border-radius: .25rem; padding: .15rem .45rem;
+  font-family: var(--font-geist-mono), ui-monospace, monospace; font-size: .625rem;
+  letter-spacing: .08em; text-transform: uppercase; background: #ededed; color: #333;
+}
+.mg-rings {
+  background:
+    radial-gradient(circle at 50% 55%, transparent 0 28%, rgb(255 255 255 / .06) 28.1% 28.3%, transparent 28.4%),
+    radial-gradient(circle at 50% 55%, transparent 0 42%, rgb(255 255 255 / .05) 42.1% 42.3%, transparent 42.4%);
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

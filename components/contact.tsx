@@ -28,7 +28,7 @@ const contactFormSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactFormSchema>
 
-export function Contact() {
+export function ContactForm() {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: { name: "", email: "", message: "" },
@@ -63,17 +63,6 @@ export function Contact() {
   const isSubmitting = form.formState.isSubmitting
 
   return (
-    <section id="contact" className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-anchor">
-      <div className="max-w-2xl mx-auto">
-        <Reveal>
-          <SectionHeading
-            title="Let's Work Together"
-            subtitle={`Have a project in mind? Email ${socialLinks.email} or use the form below.`}
-          />
-        </Reveal>
-
-        <Reveal delay={0.1}>
-          <div className="glass-card p-6 md:p-8">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
@@ -83,7 +72,7 @@ export function Contact() {
                     <FormItem>
                       <FormLabel>Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="Your name" className="bg-background/50" {...field} />
+                        <Input placeholder="Your name" className="bg-[var(--mg-very-light)]" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -99,7 +88,7 @@ export function Contact() {
                         <Input
                           type="email"
                           placeholder="you@email.com"
-                          className="bg-background/50"
+                          className="bg-[var(--mg-very-light)]"
                           {...field}
                         />
                       </FormControl>
@@ -117,7 +106,7 @@ export function Contact() {
                         <Textarea
                           placeholder="Tell me about your project..."
                           rows={5}
-                          className="bg-background/50 resize-none"
+                          className="bg-[var(--mg-very-light)] resize-none"
                           {...field}
                         />
                       </FormControl>
@@ -125,7 +114,7 @@ export function Contact() {
                     </FormItem>
                   )}
                 />
-                <Button type="submit" className="w-full btn-gradient" size="lg" disabled={isSubmitting}>
+                <Button type="submit" className="w-full rounded-full bg-black text-white hover:bg-neutral-800" size="lg" disabled={isSubmitting}>
                   {isSubmitting ? (
                     <>
                       <Spinner className="size-4" />
@@ -137,9 +126,5 @@ export function Contact() {
                 </Button>
               </form>
             </Form>
-          </div>
-        </Reveal>
-      </div>
-    </section>
   )
 }
