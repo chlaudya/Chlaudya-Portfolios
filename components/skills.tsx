@@ -52,7 +52,7 @@ export function Skills() {
                   <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill, i) => (
                       <motion.span
-                        key={skill}
+                        key={skill.name}
                         variants={fadeUp}
                         transition={{ ...defaultTransition, delay: i * 0.03 }}
                         className={cn(
@@ -61,7 +61,7 @@ export function Skills() {
                           "hover:bg-primary/20 transition-colors",
                         )}
                       >
-                        {skill}
+                        {skill.name}
                       </motion.span>
                     ))}
                   </div>
