@@ -89,4 +89,4 @@ Works on [Vercel](https://vercel.com) out of the box. Set the same environment v
 Bali, Indonesia
 
 - [GitHub](https://github.com/chlaudya)
-- [LinkedIn](https://www.linkedin.com/in/chlaudya-margareta-a50434118/)
+- [LinkedIn](https://www.linkedin.com/in/margareta-ch-a50434118/)
