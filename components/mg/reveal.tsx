@@ -1,9 +1,20 @@
 "use client"
 import { motion, useReducedMotion } from "motion/react"
 import type { ReactNode } from "react"
-export function Rise({ children, delay = 0, className }: { children: ReactNode; delay?: number; className?: string }) {
+export function Rise({
+  children,
+  delay = 0,
+  className,
+  animate = false,
+}: {
+  children: ReactNode
+  delay?: number
+  className?: string
+  /** Opt in to the scroll fade-up reveal; off by default so sections render statically. */
+  animate?: boolean
+}) {
   const reduced = useReducedMotion()
-  if (reduced) return <div className={className}>{children}</div>
+  if (!animate || reduced) return <div className={className}>{children}</div>
   return (
     <motion.div
       className={className}

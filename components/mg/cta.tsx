@@ -13,7 +13,7 @@ export function ContactCta() {
   return (
     <section id="contact" aria-labelledby="cta-title" className="bg-black px-3 py-3">
       <div className="mg-section-light px-5 py-24 text-center md:px-10">
-        <Rise>
+        <Rise animate>
           <span className="mg-chip bg-white">Available for new projects &amp; roles</span>
           <h2 id="cta-title" className="mg-title mx-auto mt-6 max-w-3xl text-5xl md:text-7xl">Let&apos;s build something exceptional together.</h2>
           <p className="mx-auto mt-6 max-w-md text-sm text-[var(--mg-medium)]">
@@ -28,7 +28,7 @@ export function ContactCta() {
           </div>
           <p role="status" aria-live="polite" className="mt-3 h-4 font-mono text-xs text-[var(--mg-medium)]">{copied ? "Copied to clipboard!" : ""}</p>
         </Rise>
-        <Rise delay={0.1} className="mx-auto mt-10 max-w-xl rounded-lg bg-white p-6 text-left ring-1 ring-black/5 md:p-8">
+        <Rise animate delay={0.1} className="mx-auto mt-10 max-w-xl rounded-lg bg-white p-6 text-left ring-1 ring-black/5 md:p-8">
           <ContactForm />
         </Rise>
       </div>
