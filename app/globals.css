@@ -338,3 +338,6 @@ body { background: var(--mg-bg); color: var(--mg-dark); }
 .mg-tone-dark { --mg-panel: var(--mg-dark); }
 .mg-tone-charcoal { --mg-panel: var(--mg-charcoal); }
 .mg-chip { background: var(--mg-chip-bg); color: var(--mg-chip-fg); }
+
+/* Anchor jumps land headings below the floating nav */
+html { scroll-padding-top: 5.5rem; }
