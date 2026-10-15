@@ -38,10 +38,38 @@ function useActiveSection() {
   return active
 }
 
+/** Document Y of the stacked wrapper holding `id`. Measured from the flow (main top + preceding
+ *  wrapper heights + margins) because sticky/pinned wrappers report their stuck position. */
+function sectionTop(id: string): number | null {
+  const el = document.getElementById(id)
+  const main = el?.closest("main")
+  if (!el || !main) return null
+  const wrapper = [...main.children].find((c) => c.contains(el)) as HTMLElement | undefined
+  if (!wrapper) return null
+  let y = main.getBoundingClientRect().top + window.scrollY
+  for (const c of [...main.children] as HTMLElement[]) {
+    // Pinned wrappers carry the panel's negative top margin on their first child (it collapses through).
+    const own = parseFloat(getComputedStyle(c).marginTop) || 0
+    const inner = c.firstElementChild ? parseFloat(getComputedStyle(c.firstElementChild).marginTop) || 0 : 0
+    y += own || inner
+    if (c === wrapper) break
+    y += c.offsetHeight
+  }
+  return Math.round(y)
+}
+
+function scrollToSection(id: string) {
+  const y = sectionTop(id)
+  if (y == null) return false
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  window.scrollTo({ top: y, behavior: reduced ? "auto" : "smooth" })
+  return true
+}
+
 const linkBase = "mg-focus rounded-full px-3 py-1.5 text-xs transition-colors"
 function linkClass(active: boolean, cta?: boolean) {
   if (cta) return cn(linkBase, "bg-[var(--mg-bg)] font-medium text-[var(--mg-dark)] hover:bg-white", active && "ring-2 ring-white/40")
-  return cn(linkBase, active ? "bg-white/10 text-white" : "text-white/70 hover:text-white")
+  return cn(linkBase, active ? "bg-white/10 text-white" : "text-white/85 hover:text-white")
 }
 
 export function Nav() {
@@ -65,15 +93,42 @@ export function Nav() {
     return () => { document.removeEventListener("keydown", onKey); document.removeEventListener("mousedown", onClick) }
   }, [open])
 
+  // Direct hash loads (e.g. /#experience): align once layout has settled.
+  useEffect(() => {
+    const id = window.location.hash.slice(1)
+    if (!items.some((i) => i.id === id)) return
+    const t = window.setTimeout(() => {
+      const y = sectionTop(id)
+      if (y != null) window.scrollTo({ top: y, behavior: "auto" })
+    }, 50)
+    return () => window.clearTimeout(t)
+  }, [])
+
   const link = (i: (typeof items)[number], className: string, onClick?: () => void) => (
-    <a href={`#${i.id}`} aria-current={active === i.id ? "true" : undefined} className={className} onClick={onClick}>
+    <a
+      href={`#${i.id}`}
+      aria-current={active === i.id ? "true" : undefined}
+      className={className}
+      onClick={(e) => {
+        onClick?.()
+        if (scrollToSection(i.id)) {
+          e.preventDefault()
+          history.pushState(null, "", `#${i.id}`)
+          const target = document.getElementById(i.id)
+          if (target) {
+            if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1")
+            target.focus({ preventScroll: true })
+          }
+        }
+      }}
+    >
       {i.label}
     </a>
   )
 
   return (
     <header className="pointer-events-none fixed inset-x-0 top-3 z-50 flex justify-center px-3 sm:top-4">
-      <nav aria-label="Primary" className="pointer-events-auto relative flex items-center gap-1 rounded-full bg-black px-2 py-1.5 text-white shadow-lg ring-1 ring-white/15">
+      <nav aria-label="Primary" className="pointer-events-auto relative flex items-center gap-1 mg-glass rounded-full px-2 py-1.5 text-white">
         <ul className="hidden items-center gap-1 sm:flex">
           {items.slice(0, 2).map((i) => <li key={i.id}>{link(i, linkClass(active === i.id))}</li>)}
         </ul>
@@ -95,7 +150,7 @@ export function Nav() {
           <ul
             id="mobile-nav"
             ref={menuRef}
-            className="absolute left-1/2 top-[calc(100%+0.5rem)] w-[min(20rem,calc(100vw-1.5rem))] -translate-x-1/2 space-y-1 rounded-3xl bg-black p-3 shadow-xl ring-1 ring-white/15 sm:hidden"
+            className="absolute left-1/2 top-[calc(100%+0.5rem)] w-[min(20rem,calc(100vw-1.5rem))] -translate-x-1/2 space-y-1 mg-glass rounded-3xl p-3 sm:hidden"
           >
             {items.map((i) => (
               <li key={i.id}>
