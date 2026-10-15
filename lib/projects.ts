@@ -87,6 +87,6 @@ export const projects: Project[] = [
 
 export const socialLinks = {
   github: "https://github.com/chlaudya",
-  linkedin: "https://www.linkedin.com/in/margareta-ch-a50434118/",
+  linkedin: "https://www.linkedin.com/in/chlaudya-margareta-a50434118/",
   email: "mamuaya.chlaudya@gmail.com",
 } as const;

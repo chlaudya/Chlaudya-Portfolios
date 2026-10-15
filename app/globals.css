@@ -340,12 +340,6 @@ body { background: var(--mg-bg); color: var(--mg-dark); }
 .mg-chip { background: var(--mg-chip-bg); color: var(--mg-chip-fg); }
 
 /* Frosted-glass nav: dark tint keeps white text >= 4.5:1 over light and dark panels */
-.mg-glass {
-  background: rgb(11 11 11 / .55);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-  backdrop-filter: blur(20px) saturate(160%);
-  box-shadow: 0 8px 32px -8px rgb(0 0 0 / .35), inset 0 0 0 1px rgb(255 255 255 / .12);
-}
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .mg-glass { background: rgb(11 11 11 / .9); }
+  .mg-glass { background-color: rgb(11 11 11 / .9) !important; }
 }
