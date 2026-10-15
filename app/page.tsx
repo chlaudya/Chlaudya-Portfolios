@@ -6,6 +6,7 @@ import { Workflow } from "@/components/mg/workflow"
 import { Experience } from "@/components/mg/experience"
 import { ContactCta } from "@/components/mg/cta"
 import { Footer } from "@/components/mg/footer"
+import { StackSection } from "@/components/mg/stack"
 
 export default function Home() {
   return (
@@ -13,14 +14,24 @@ export default function Home() {
       <a href="#projects" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded focus:bg-white focus:px-3 focus:py-2">Skip to content</a>
       <Nav />
       <main className="bg-black">
-        <Hero />
-        <div className="mg-section-light relative z-10 -mt-12">
+        <StackSection index={0} rounded={false} pin>
+          <Hero />
+        </StackSection>
+        <StackSection index={1} tone="light">
           <Projects />
+        </StackSection>
+        <StackSection index={2} tone="charcoal">
           <TechStack />
+        </StackSection>
+        <StackSection index={3} tone="stone">
           <Workflow />
+        </StackSection>
+        <StackSection index={4} tone="dark" pin>
           <Experience />
-        </div>
-        <ContactCta />
+        </StackSection>
+        <StackSection index={5} className="bg-black">
+          <ContactCta />
+        </StackSection>
       </main>
       <Footer />
     </>
