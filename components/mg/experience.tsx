@@ -3,7 +3,7 @@ import { Rise, SectionHead } from "./reveal"
 
 export function Experience() {
   return (
-    <section id="experience" aria-labelledby="exp-title" className="mg-section-light relative z-10 border-t border-black/10 px-5 pb-24 pt-20 md:px-10">
+    <section id="experience" aria-labelledby="exp-title" className="px-5 pb-24 pt-20 md:px-10">
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1fr_2fr]">
         <div className="md:sticky md:top-24 md:self-start">
           <SectionHead id="exp-title" eyebrow="Career &" title="Experience"
