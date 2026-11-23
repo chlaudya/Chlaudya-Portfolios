@@ -6,7 +6,7 @@ import { socialLinks } from "@/lib/projects"
 const stats = [
   { big: "6+", small: "Years of experience" },
   { big: "10+", small: "Corporate platforms shipped" },
-  { big: "Bali", small: "Indonesia · Open to remote" },
+  { big: "Bali", small: "Indonesia, open to remote" },
 ]
 
 export function Hero() {
@@ -17,7 +17,7 @@ export function Hero() {
       <div className="relative mx-auto max-w-7xl px-5 pt-24 md:px-10">
         <div className="grid items-start gap-8 md:grid-cols-3">
           <p className="mg-title order-2 text-xl md:order-1 md:pt-10 md:text-2xl">
-            Frontend engineering for products people actually enjoy using.
+            I build the React screens that banks, lenders and charities run on.
           </p>
           <div className="relative order-1 mx-auto h-[340px] w-[240px] md:order-2 md:h-[440px] md:w-[300px]">
             <div className="absolute inset-0 rounded-t-full bg-gradient-to-b from-white/90 via-white/60 to-transparent" aria-hidden />
@@ -32,8 +32,7 @@ export function Hero() {
           </div>
           <div className="order-3 md:pt-10">
             <p className="max-w-xs text-sm leading-relaxed text-white/70">
-              Hi, I&apos;m Chlaudya — a senior frontend engineer in Bali building React &amp; TypeScript platforms,
-              admin dashboards, and payment integrations for global teams.
+              Senior frontend engineer in Bali. Over six years I&apos;ve built for a digital bank, a listed lender, NGBlu Networks in the Netherlands, and MuslimWills and Awqaf in Australia.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               <a href="#contact" className="mg-pill bg-white text-black hover:bg-white/85">Get in touch <ArrowUpRight className="size-3.5" aria-hidden /></a>
@@ -52,12 +51,10 @@ export function Hero() {
 
         <div className="mx-auto mt-20 max-w-3xl text-center">
           <p className="text-2xl leading-snug md:text-4xl">
-            Building fast, polished React, Next.js and TypeScript experiences — engineered for performance and engagement.
+            Fast React and Next.js sites, tested before they ship.
           </p>
           <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/60">
-            Detail-oriented frontend engineer with 6+ years in React, TypeScript, and modern JavaScript stacks — 10+ corporate
-            platforms and admin dashboards shipped, with a 30% lift in user engagement. I move fast with AI-assisted
-            development, payment integrations, and motion-rich UI in global, cross-functional teams.
+            At BFI Finance my back-office tools cut data entry by 70%, and at Amar Bank I improved the landing site&apos;s performance by 50%. Now I lead a frontend team at Itsavirus. Claude Code and Cursor draft my prototypes, tests and refactors, and code review catches what they miss.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-2">
             <a href="#contact" className="mg-pill mg-pill-ghost">Start a conversation</a>

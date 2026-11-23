@@ -1,10 +1,10 @@
 import { Rise, SectionHead } from "./reveal"
 
 const steps = [
-  { t: "Discover & Scope", d: "Working with product, design and backend early in an agile cadence to clarify requirements before code is written." },
-  { t: "UI Architecture & Design Systems", d: "Building reusable React + TypeScript components and pixel-perfect, motion-rich interfaces with Next.js and Tailwind." },
-  { t: "Integrate & Automate", d: "Wiring CMS (Sanity), payments (Stripe) and APIs, and using AI-assisted development and n8n to move faster." },
-  { t: "Test, Optimize & Ship", d: "TDD with Jest, Vitest and RTL, Core Web Vitals and performance tuning, and mentoring the team through release." },
+  { t: "Discover & Scope", d: "I sit with product, design and backend before anyone writes code, so the requirements are clear before the first line." },
+  { t: "UI Architecture & Design Systems", d: "Reusable React and TypeScript components in Next.js and Tailwind, matched to the design, with motion where it helps." },
+  { t: "Integrate & Automate", d: "Sanity for content, Stripe for payments, REST or GraphQL for the rest. Claude, Cursor and n8n take the repetitive parts." },
+  { t: "Test, Optimize & Ship", d: "Tests first with Jest, Vitest and React Testing Library. Then a Core Web Vitals pass, and I walk the team through the release." },
 ]
 
 export function Workflow() {
@@ -12,7 +12,7 @@ export function Workflow() {
     <section aria-labelledby="workflow-title" className="px-5 py-20 md:px-10">
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1fr_2fr]">
         <SectionHead id="workflow-title" eyebrow="Engineering &" title="Workflow"
-          intro="How I take a feature from requirements to production." />
+          intro="How a feature gets from a ticket to production." />
         <ol className="divide-y divide-[var(--mg-line)] border-t border-[var(--mg-line)]">
           {steps.map((s, i) => (
             <li key={s.t}>
