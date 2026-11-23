@@ -14,10 +14,10 @@ export function ContactCta() {
     <section id="contact" aria-labelledby="cta-title" className="bg-black px-3 py-3">
       <div className="mg-section-light px-5 py-24 text-center md:px-10">
         <Rise animate>
-          <span className="mg-chip bg-white">Available for new projects &amp; roles</span>
-          <h2 id="cta-title" className="mg-title mx-auto mt-6 max-w-3xl text-5xl md:text-7xl">Let&apos;s build something exceptional together.</h2>
+          <span className="mg-chip bg-white">Open to new roles and freelance work</span>
+          <h2 id="cta-title" className="mg-title mx-auto mt-6 max-w-3xl text-5xl md:text-7xl">Need a React engineer, or someone to lead a frontend team?</h2>
           <p className="mx-auto mt-6 max-w-md text-sm text-[var(--mg-medium)]">
-            Have a project in mind? Email me directly or send a message below.
+            Email me, or write a note below. It opens in your mail app.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
             <a href={`mailto:${socialLinks.email}`} className="mg-pill mg-pill-dark">Get in touch <ArrowUpRight className="size-3.5" aria-hidden /></a>

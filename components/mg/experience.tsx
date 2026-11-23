@@ -7,7 +7,7 @@ export function Experience() {
       <SplitLayout
         aside={
           <SectionHead id="exp-title" eyebrow="Career &" title="Experience"
-            intro="Companies and products I've built for, the role I played, and the tech behind the work." />
+            intro="Where I've worked, what I did there, and the stack behind it." />
         }
       >
         <ol className="relative border-l border-[var(--mg-line)] pl-6">

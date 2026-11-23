@@ -24,11 +24,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Chlaudya Margareta — Senior Frontend Engineer",
+    default: "Chlaudya Margareta, Senior Frontend Engineer in Bali",
     template: "%s | Chlaudya Margareta",
   },
   description:
-    "Frontend Engineer in Bali — 6+ years with React, TypeScript, and modern JS. 10+ corporate platforms, 30% engagement uplift, AI-assisted delivery, and payment integrations.",
+    "Senior frontend engineer in Bali. Six years of React, TypeScript and Next.js for a digital bank, a listed lender and clients in the Netherlands and Australia.",
   keywords: [
     "Frontend Engineer",
     "React",
@@ -44,17 +44,17 @@ export const metadata: Metadata = {
     shortcut: "/icon.svg",
   },
   openGraph: {
-    title: "Chlaudya Margareta — Senior Frontend Engineer",
+    title: "Chlaudya Margareta, Senior Frontend Engineer in Bali",
     description:
-      "React & TypeScript engineer — corporate platforms, admin dashboards, AI-assisted workflows, and payment integrations across global teams.",
+      "React and TypeScript engineer in Bali: banking sites, back-office dashboards, Stripe payments, and AI-assisted development with Claude Code and Cursor.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Chlaudya Margareta — Senior Frontend Engineer",
+    title: "Chlaudya Margareta, Senior Frontend Engineer in Bali",
     description:
-      "React & TypeScript engineer — corporate platforms, admin dashboards, AI-assisted workflows, and payment integrations.",
+      "React and TypeScript engineer in Bali: banking sites, back-office dashboards and Stripe payments.",
   },
 };
 

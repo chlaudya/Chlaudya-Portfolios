@@ -7,7 +7,7 @@ export function TechStack() {
       <SplitLayout
         aside={
           <SectionHead id="stack-title" eyebrow="Technologies &" title="Tech Stack"
-          intro="The tools I use to build, test, and ship modern web applications — from frontend architecture and API integration to performance, automation, and AI-assisted engineering." />
+          intro="The tools I build, test and ship with, grouped by the stage of a project they belong to. The AI row at the bottom is the newest." />
         }
       >
         <div className="space-y-10">

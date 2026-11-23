@@ -10,7 +10,7 @@ export function Projects() {
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <h2 id="projects-title" className="mg-title text-5xl md:text-7xl">Featured<br />_Projects</h2>
           <p className="max-w-xs text-sm text-[var(--mg-medium)]">
-            A selection of corporate platforms, product sites and dashboards I&apos;ve shipped — with the outcomes they delivered.
+            Six projects, from a bank&apos;s landing site to a waqf donation platform. Where I have a number, it&apos;s next to the project.
           </p>
         </div>
         <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

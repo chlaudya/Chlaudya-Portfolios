@@ -16,9 +16,9 @@ export const projects: Project[] = [
     title: "PT. Itsavirus Development Bali",
     shortTitle: "NGBlu Networks",
     role: "Senior Frontend Engineer",
-    highlight: "Team lead · Architecture",
+    highlight: "Team lead, Architecture",
     description:
-      "Leading a frontend team and shipping the NGBlu Networks corporate site — mentoring engineers, driving architecture, and delivering production-grade React experiences.",
+      "I lead the frontend team at Itsavirus on the corporate site for NGBlu Networks, a Dutch network operator. I set the architecture, review the code and mentor the engineers who build it in React.",
     tags: ["Team Leadership", "React", "Architecture", "Mentoring"],
     images: ["/ngblu-1", "/ngblu-2", "/ngblu-3", "/ngblu-4", "/ngblu-5"],
     link: "https://www.ngblunetworks.nl/",
@@ -28,9 +28,9 @@ export const projects: Project[] = [
     title: "BaliConnect",
     shortTitle: "BaliConnect",
     role: "Frontend Engineer",
-    highlight: "Packages · À la carte",
+    highlight: "Packages, À la carte",
     description:
-      "Travel site for authentic Bali journeys — ready-made packages, tailor-made planning, and à la carte transport, guides, and activities, with a calm editorial layout.",
+      "A travel site for Bali trips. Visitors pick a ready-made package, plan their own, or book transport, guides and activities one at a time. The layout is calm and editorial, and it holds up on a phone.",
     tags: ["Travel", "UI", "Responsive", "Marketing"],
     images: ["/baliconnect-1", "/baliconnect-2", "/baliconnect-3", "/baliconnect-4"],
     link: "https://baliconnect.id/",
@@ -42,7 +42,7 @@ export const projects: Project[] = [
     role: "Frontend Engineer",
     highlight: "70% faster data entry",
     description:
-      "Cut data-entry time by 70% through new application workflows. Improved project quality 30% and shortened turnaround 25% with agile delivery.",
+      "New application workflows in BFI's back-office tools cut data-entry time by 70%. Project turnaround dropped by a quarter with a more streamlined process.",
     tags: ["React", "Performance", "Agile", "FinTech"],
     images: ["/bfi-1", "/bfi-2", "/bfi-3"],
     link: "https://www.bfi.co.id",
@@ -54,7 +54,7 @@ export const projects: Project[] = [
     role: "Frontend Engineer",
     highlight: "50% perf uplift",
     description:
-      "Boosted digital banking landing performance by 50%, raised test coverage 80%, and mentored juniors on React and web performance.",
+      "Amar Bank's landing site, with 50% better performance. Test coverage went up by 80%, and I mentored the juniors on React.",
     tags: ["Banking", "Performance", "Testing", "Mentoring"],
     images: ["/tunaiku-1", "/tunaiku-2", "/tunaiku-3"],
     link: "https://amarbank.co.id/",
@@ -66,7 +66,7 @@ export const projects: Project[] = [
     role: "Frontend Engineer",
     highlight: "Motion-rich UI",
     description:
-      "Islamic-compliant wills platform with Next.js and Sanity. Pixel-perfect UI with Motion for React while keeping Core Web Vitals strong.",
+      "An Islamic wills platform in Australia on Next.js and Sanity. It's animated with Motion for React, and Core Web Vitals held up anyway.",
     tags: ["Next.js", "Motion", "Sanity", "Tailwind"],
     images: ["/muslim-1", "/muslim-2", "/muslim-3"],
     link: "https://www.muslimwills.com.au/",
@@ -76,9 +76,9 @@ export const projects: Project[] = [
     title: "Awqaf Australia",
     shortTitle: "Awqaf Australia",
     role: "Frontend Engineer",
-    highlight: "Stripe · Sanity CMS",
+    highlight: "Stripe, Sanity CMS",
     description:
-      "Charitable waqf platform with Next.js, Sanity schema, and Stripe — secure donations and dynamic content with Fullsuite Agency.",
+      "A waqf (Islamic endowment) charity in Australia. Working with Fullsuite Agency, I built the Next.js front end, the Sanity schema and the Stripe donation flow.",
     tags: ["Next.js", "Sanity", "Stripe", "Fullstack"],
     images: ["/awqaf-1", "/awqaf-2", "/awqaf-3"],
     link: "https://awqaf.org.au",

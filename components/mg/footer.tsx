@@ -10,7 +10,7 @@ export function Footer() {
           <li><a className="mg-focus hover:text-white" href={`mailto:${socialLinks.email}`}>Email</a></li>
           <li><a className="mg-focus hover:text-white" href="#top">Back to top ↑</a></li>
         </ul>
-        <p className="mg-eyebrow text-white/50">© {new Date().getFullYear()} · Bali, Indonesia</p>
+        <p className="mg-eyebrow text-white/50">© {new Date().getFullYear()}, Bali, Indonesia</p>
       </div>
     </footer>
   )
